@@ -46,3 +46,9 @@ func basicHandler(w http.ResponseWriter, r *http.Request) {
 curl http://localhost:8000
 curl -X POST http://localhost:8000 -v
 ```
+
+---
+
+```sh
+docker run -p 6379:6379 redis:latest
+```
