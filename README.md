@@ -1,3 +1,5 @@
+# [Microservice using Go, Chi & Redis](https://www.youtube.com/watch?v=wpnN3RIRSxs&list=PL4cUxeGkcC9iImF8w9FbFOc2UntutL9Wv&index=1)
+
 ```go
 func main() {
 	server := &http.Server{
@@ -43,12 +45,15 @@ func basicHandler(w http.ResponseWriter, r *http.Request) {
 > [**_chi is a lightweight, idiomatic and composable router for building Go HTTP services. It's especially good at helping you write large REST API services that are kept maintainable as your project grows and changes._**](https://github.com/go-chi/chi)
 
 ```sh
-curl http://localhost:8000
-curl -X POST http://localhost:8000 -v
+docker run -p 6379:6379 redis:latest
 ```
 
----
+```sh
+python scripts/publish-orders.py
+```
 
 ```sh
-docker run -p 6379:6379 redis:latest
+curl -sS "localhost:3000/orders"
+curl -sS "localhost:3000/orders?cursor=39"
+curl -sS "http://localhost:3000/orders/3806658213066379331"
 ```
